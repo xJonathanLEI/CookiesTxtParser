@@ -12,10 +12,14 @@ namespace CookiesTxt
             if (!fileInfo.Exists)
                 throw new FileNotFoundException("Cookies file not found", fileInfo.FullName);
 
+            return ParseStreamAsCookieCollection(fileInfo.OpenRead());
+        }
+
+        public static CookieCollection ParseStreamAsCookieCollection(Stream stream)
+        {
             var cookies = new CookieCollection();
 
-            using (var fs = fileInfo.OpenRead())
-            using (var sr = new StreamReader(fs))
+            using (var sr = new StreamReader(stream))
             {
                 int lineCount = 0;
 
