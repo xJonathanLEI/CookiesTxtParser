@@ -6,7 +6,7 @@ A simple library for parsing cookies.txt files used by tools like curl and wget 
 
 ## Installation
 
-The package is available at NuGet:
+The package is available at [NuGet](https://www.nuget.org/packages/CookiesTxtParser):
 
     dotnet add package CookiesTxtParser
 
