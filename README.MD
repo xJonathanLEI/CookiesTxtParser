@@ -21,6 +21,7 @@ Parse a file by path:
     CookiesTxt.Parser.ParseFileAsCookieCollection("/path/to/cookies.txt");
 
     // To IReadOnlyList
+    CookiesTxt.Parser.ParseFileAsCookies("/path/to/cookies.txt");
 
 Parse a stream:
 
@@ -28,3 +29,4 @@ Parse a stream:
     CookiesTxt.Parser.ParseStreamAsCookieCollection(stream);
 
     // To IReadOnlyList
+    CookiesTxt.Parser.ParseStreamAsCookies(stream);
