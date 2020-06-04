@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 
@@ -8,16 +9,36 @@ namespace CookiesTxt
     {
         public static CookieCollection ParseFileAsCookieCollection(string filePath)
         {
-            var fileInfo = new FileInfo(filePath);
-            if (!fileInfo.Exists)
-                throw new FileNotFoundException("Cookies file not found", fileInfo.FullName);
+            var cookies = ParseFileAsCookies(filePath);
+            var cookieCollection = new CookieCollection();
+            foreach (var cookie in cookies)
+                cookieCollection.Add(cookie);
 
-            return ParseStreamAsCookieCollection(fileInfo.OpenRead());
+            return cookieCollection;
         }
 
         public static CookieCollection ParseStreamAsCookieCollection(Stream stream)
         {
-            var cookies = new CookieCollection();
+            var cookies = ParseStreamAsCookies(stream);
+            var cookieCollection = new CookieCollection();
+            foreach (var cookie in cookies)
+                cookieCollection.Add(cookie);
+
+            return cookieCollection;
+        }
+
+        public static IReadOnlyList<Cookie> ParseFileAsCookies(string filePath)
+        {
+            var fileInfo = new FileInfo(filePath);
+            if (!fileInfo.Exists)
+                throw new FileNotFoundException("Cookies file not found", fileInfo.FullName);
+
+            return ParseStreamAsCookies(fileInfo.OpenRead());
+        }
+
+        public static IReadOnlyList<Cookie> ParseStreamAsCookies(Stream stream)
+        {
+            var cookies = new List<Cookie>();
 
             using (var sr = new StreamReader(stream))
             {

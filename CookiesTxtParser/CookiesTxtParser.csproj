@@ -6,7 +6,7 @@
 
 	<PropertyGroup>
     <IsPackable>true</IsPackable>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <PackageId>CookiesTxtParser</PackageId>
   	<Authors>Jonathan LEI</Authors>
 		<Description>A cookies.txt parser library for .NET Standard</Description>

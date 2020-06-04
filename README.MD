@@ -2,7 +2,10 @@
 
 ## Introduction
 
-A simple library for parsing cookies.txt files used by tools like curl and wget into `System.Net.CookieCollection`.
+A simple library for parsing cookies.txt files, Netscape HTTP Cookie File format used by tools like curl and wget, into:
+
+- `System.Net.CookieCollection` for use by `HttpClient`
+- `IReadOnlyList<Cookie>` for inspection (since it's difficult to enumerate a `CookieCollection`)
 
 ## Installation
 
@@ -12,10 +15,16 @@ The package is available at [NuGet](https://www.nuget.org/packages/CookiesTxtPar
 
 ## Usage
 
-Parse a file into `CookieCollection`:
+Parse a file by path:
 
+    // To CookieCollection
     CookiesTxt.Parser.ParseFileAsCookieCollection("/path/to/cookies.txt");
 
-Parse a stream into `CookieCollection`:
+    // To IReadOnlyList
 
+Parse a stream:
+
+    // To CookieCollection
     CookiesTxt.Parser.ParseStreamAsCookieCollection(stream);
+
+    // To IReadOnlyList
