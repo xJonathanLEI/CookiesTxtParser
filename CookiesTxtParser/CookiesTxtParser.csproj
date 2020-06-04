@@ -4,4 +4,20 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+	<PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageId>CookiesTxtParser</PackageId>
+  	<Authors>Jonathan LEI</Authors>
+		<Description>A cookies.txt parser library for .NET Standard</Description>
+		<Copyright>Copyright © Jonathan LET 2020</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>cookies</PackageTags>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<RepositoryUrl>https://github.com/xJonathanLEI/CookiesTxtParser</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageProjectUrl>https://github.com/xJonathanLEI/CookiesTxtParser</PackageProjectUrl>
+  </PropertyGroup>
+
 </Project>
